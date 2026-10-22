@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musik World!</title>
+    <link rel="stylesheet" href="MUSIKWORLD_STYLESHEET.css">
+    <script src="MUSIKJS.js"></script>
+</head>
+
+<body>
+
+    <!-- WEBSITE HEADER -->
+    <div class="header-container">
+
+        <h1>MusikWorld!</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search">
+            <span></span>
+        </div>
+
+        <div class="icon-btn" onclick="cartClick()">🛒
+            <span class="cart-badge" id="cartBadge">0</span>
+            <span class="tooltip">Cart</span>
+        </div>
+
+        <div class="icon-btn" onclick="accountClick()">👤
+            <span class="tooltip">Account</span>
+        </div>
+
+        <div class="icon-btn" onclick="settingsClick()">⚙️
+            <span class="tooltip">Settings</span>
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+    <div class="content-links">
+
+        <a href="#" onclick="homeClick(); return false;"
+           onmouseover="this.style.color='#0f4466'"
+           onmouseout="this.style.color='#333'"><b>Home</b></a>
+
+        <a href="#" onclick="aboutClick(); return false;"
+           onmouseover="this.style.color='#0f4466'"
+           onmouseout="this.style.color='#333'"><b>About Us</b></a>
+
+        <a href="#" onclick="alert('This is the product page!'); return false;"
+           onmouseover="this.style.color='#0f4466'"
+           onmouseout="this.style.color='#333'"><b>Products</b></a>
+
+        <a href="#" onclick="contactClick(); return false;"
+           onmouseover="this.style.color='#0f4466'"
+           onmouseout="this.style.color='#333'"><b>Contact Us</b></a>
+
+        <a href="#" onclick="alert('This is the Shop Us page!'); return false;"
+           onmouseover="this.style.color='#0f4466'"
+           onmouseout="this.style.color='#333'"><b>Shop Us</b></a>
+
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <main>
+
+        <div class="category-container">
+
+            <!-- FEATURED GUITAR BANNER -->
+            <div class="featured-banner">
+
+                <h2>Fender Vintage</h2>
+
+                <p>Simple. Clean. Ready to Rock.</p>
+
+                <button onclick="alert('Welcome to our shop!')">
+                    SHOP NOW
+                </button>
+
+            </div>
+
+            <!-- INSTRUMENT CATEGORIES -->
+            <div class="category-grid">
+
+                <a href="#" class="category-card guitars">
+                    <h3>GUITARS</h3>
+                </a>
+
+                <a href="#" class="category-card piano">
+                    <h3>Piano</h3>
+                </a>
+
+                <a href="#" class="category-card drums">
+                    <h3>DRUMS</h3>
+                </a>
+
+                <a href="#" class="category-card wind-brass">
+                    <h3>WIND<br>&amp<br>BRASS</h3>
+                </a>
+
+                <a href="#" class="category-card violin">
+                    <h3>Violin</h3>
+                </a>
+
+                <a href="#" class="category-card more">
+                    <h3>More</h3>
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ABOUT US PAGE -->
+    <section class="about" id="about" style="display: none;">
+
+        <h1>ABOUT US!</h1>
+
+        <div class="row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSjZqJDaJc2kKB_p_mcT8AMAcDTHOBRhImujXCttBf6w&s=10" alt="Music Store">
+
+            <div class="box">
+                <p>
+                    At Music World, we believe that every musician
+                    needs the right instrument. Our store offers
+                    different musical instruments for beginners
+                    and experienced musicians. We want to help
+                    people enjoy music and improve their skills.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <p>
+                    We curate a comprehensive selection of premium acoustic and electric guitars, keyboards, drums, digital audio interfaces, 
+                    and live sound gear from the world’s most trusted brands. Beyond providing top-tier equipment, our experienced team offers personalized 
+                    recommendations, professional instrument setup, and ongoing repair services to keep your gear sounding its absolute best.
+                </p>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIvbFHMucjR65N4cGpQxOKdSWLRF7ZGbPZOmTR9DJMHg&s=10" alt="Guitars">
+        </div>
+
+        <p class="footer">
+            Music World is here to help you enjoy music
+            and find the right instrument for you.
+        </p>
+
+        <button onclick="homeClick()">Back to Home</button>
+
+    </section>
+
+    <!-- CONTACT US PAGE -->
+    <section class="contact" id="contact" style="display: none;">
+
+        <h1>CONTACT US!</h1>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>📍 Address: 123 Music Street, Quezon City</p>
+                <p>📞 Phone: (02) 1234-5678</p>
+                <p>✉️ Email: hello@musicworld.com</p>
+                <p>🕘 Hours: Mon–Sat, 9:00 AM – 7:00 PM</p>
+            </div>
+
+            <form class="contact-form" onsubmit="submitContact(event)">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" placeholder="Your name" required>
+
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" placeholder="you@example.com" required>
+
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
+
+                <button class="btn" type="submit">Send Message</button>
+            </form>
+
+        </div>
+
+        <button class="btn btn-center" onclick="homeClick()">Back to Home</button>
+
+    </section>
+
+    <!-- CART PAGE -->
+    <section class="page" id="cart" style="display: none;">
+
+        <h1>🛒 YOUR CART</h1>
+
+        <div class="panel">
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">₱0</span>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn" onclick="checkout()">Checkout</button>
+                <button class="btn" onclick="homeClick()">Continue Shopping</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ACCOUNT PAGE -->
+    <section class="page" id="account" style="display: none;">
+
+        <h1>👤 MY ACCOUNT</h1>
+
+        <div class="panel">
+
+            <!-- Login / sign-up view -->
+            <div id="loginView">
+                <h2>Log In or Sign Up</h2>
+                <form onsubmit="loginAccount(event)">
+                    <label class="field-label" for="accName">Name</label>
+                    <input type="text" id="accName" placeholder="Your name" required>
+
+                    <label class="field-label" for="accEmail">Email</label>
+                    <input type="email" id="accEmail" placeholder="you@example.com" required>
+
+                    <label class="field-label" for="accPass">Password</label>
+                    <input type="password" id="accPass" placeholder="Password" required>
+
+                    <button class="btn" type="submit">Continue</button>
+                </form>
+            </div>
+
+            <!-- Profile view (shown after logging in) -->
+            <div id="profileView" style="display: none;">
+                <h2>Welcome, <span id="welcomeName"></span>!</h2>
+                <p class="welcome-text">
+                    You are logged in as <strong id="accEmailShown"></strong>.<br>
+                    Orders: none yet
+                </p>
+                <div class="btn-row">
+                    <button class="btn" onclick="cartClick()">View Cart</button>
+                    <button class="btn" onclick="logoutAccount()">Log Out</button>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-center" onclick="homeClick()">Back to Home</button>
+
+    </section>
+
+    <!-- SETTINGS PAGE -->
+    <section class="page" id="settings" style="display: none;">
+
+        <h1>⚙️ SETTINGS</h1>
+
+        <div class="panel">
+
+            <div class="setting-row">
+                <label for="darkToggle">Dark mode</label>
+                <input type="checkbox" id="darkToggle" onchange="toggleDarkMode()">
+            </div>
+
+            <div class="setting-row">
+                <label for="emailToggle">Email newsletter</label>
+                <input type="checkbox" id="emailToggle" checked>
+            </div>
+
+            <div class="setting-row">
+                <label for="orderToggle">Order updates</label>
+                <input type="checkbox" id="orderToggle" checked>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn" onclick="saveSettings()">Save</button>
+                <button class="btn" onclick="resetSettings()">Reset</button>
+            </div>
+
+        </div>
+
+        <button class="btn btn-center" onclick="homeClick()">Back to Home</button>
+
+    </section>
+
+    <!-- PRODUCTS PAGE (not built yet) -->
+
+</body>
+</html>
