@@ -313,9 +313,7 @@ function showPage(page) {
             var item = shownItems[i];
             addToCart(item.n, item.p);
         }
-    </script>
 
-    <script>
         document.addEventListener("DOMContentLoaded", function () {
             ["guitars", "piano", "drums", "wind-brass", "violin", "more"].forEach(function (slug) {
                 var card = document.querySelector(".category-card." + slug);
