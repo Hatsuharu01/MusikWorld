@@ -13,7 +13,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* HEADER */
         .header-container {
             display: flex;
             align-items: center;
@@ -107,7 +106,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Cart count badge */
         .cart-badge {
             position: absolute;
             top: -4px;
@@ -193,6 +191,7 @@
             align-items: center;
             text-decoration: none;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .category-card h3 {
@@ -233,7 +232,6 @@
             background-image: url("https://images.unsplash.com/photo-1461360228754-6e81c478b882?auto=format&fit=crop&w=800&q=80");
         }
 
-        /* SHARED STYLE FOR ALL INNER PAGES */
         .about,
         .contact,
         .page {
@@ -254,7 +252,6 @@
             font-size: 40px;
         }
 
-        /* ABOUT US */
         .row {
             display: flex;
             align-items: center;
@@ -297,7 +294,6 @@
             cursor: pointer;
         }
 
-        /* CONTACT US */
         .contact-wrapper {
             max-width: 900px;
             margin: 0 auto;
@@ -348,7 +344,6 @@
             box-sizing: border-box;
         }
 
-        /* SHARED BUTTON STYLE */
         .btn {
             padding: 10px 25px;
             border: 1px solid #999;
@@ -374,7 +369,6 @@
             margin: 20px auto 0;
         }
 
-        /* CART / ACCOUNT / SETTINGS PANELS */
         .panel {
             max-width: 700px;
             margin: 0 auto;
@@ -459,7 +453,131 @@
             flex-wrap: wrap;
         }
 
-        /* DARK MODE (from Settings) */
+        .shop-title {
+            font-family: 'Chunk Five', Impact, sans-serif;
+            font-size: 44px;
+            text-align: center;
+            margin: 0 0 25px;
+            color: #f2b632;
+            -webkit-text-stroke: 1.5px #0f4466;
+            text-shadow: 2px 2px 0 #0f4466;
+        }
+
+        .shop-layout {
+            display: flex;
+            gap: 25px;
+            max-width: 1150px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        .shop-side {
+            width: 220px;
+            flex-shrink: 0;
+            border-right: 1px solid #ddd;
+            padding-right: 20px;
+        }
+
+        .shop-side h3 {
+            font-family: 'Chunk Five', Impact, sans-serif;
+            font-size: 28px;
+            margin: 0 0 8px;
+            font-weight: normal;
+        }
+
+        .shop-side a {
+            display: block;
+            font-size: 20px;
+            color: #aaa;
+            text-decoration: none;
+            padding: 7px 2px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .shop-side a:hover,
+        .shop-side a.active {
+            color: #0f4466;
+            font-weight: bold;
+        }
+
+        .shop-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .product:nth-child(4n+3),
+        .product:nth-child(4n+4) {
+            flex-direction: row-reverse;
+        }
+
+        .product img {
+            width: 150px;
+            height: 190px;
+            object-fit: contain;
+            border: 1px solid #333;
+            background: #fafafa;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex: 1;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .product-info hr {
+            border: 0;
+            border-top: 1px solid #888;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .shop-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 30px;
+            color: #555;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-size: 15px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+
+        #toast.show {
+            opacity: 1;
+        }
+
         body.dark .about,
         body.dark .contact,
         body.dark .page {
@@ -482,11 +600,33 @@
         }
 
         body.dark .cart-item-price,
-        body.dark .empty-note {
+        body.dark .empty-note,
+        body.dark .shop-empty {
             color: #bbb;
         }
 
-        /* ABOUT US MOBILE */
+        body.dark .product {
+            background-color: #2d2d2d;
+            border-color: #555;
+        }
+
+        body.dark .product-info {
+            color: #eee;
+        }
+
+        body.dark .shop-side {
+            border-color: #555;
+        }
+
+        body.dark .shop-side a {
+            border-color: #555;
+        }
+
+        body.dark .shop-side a:hover,
+        body.dark .shop-side a.active {
+            color: #f2b632;
+        }
+
         @media (max-width: 600px) {
             .row {
                 flex-direction: column;
@@ -497,7 +637,6 @@
             }
         }
 
-        /* MOBILE SCREEN */
         @media (max-width: 650px) {
             .header-container {
                 padding: 15px;
@@ -553,5 +692,35 @@
             .contact h1,
             .page h1 {
                 font-size: 32px;
+            }
+
+            .shop-title {
+                font-size: 30px;
+            }
+
+            .shop-layout {
+                flex-direction: column;
+            }
+
+            .shop-side {
+                width: 100%;
+                border-right: none;
+                padding-right: 0;
+                box-sizing: border-box;
+            }
+
+            .shop-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+
+            .product:nth-child(4n+3),
+            .product:nth-child(4n+4) {
+                flex-direction: row;
+            }
+
+            .product img {
+                width: 110px;
+                height: 150px;
             }
         }
