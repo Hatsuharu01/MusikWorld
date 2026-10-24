@@ -10,11 +10,9 @@
 </head>
 
 <body>
+   <div class="header-container">
 
-    <!-- WEBSITE HEADER -->
-    <div class="header-container">
-
-        <h1>MusikWorld!</h1>
+        <h1>Music World!</h1>
 
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search">
@@ -36,7 +34,6 @@
 
     </div>
 
-    <!-- NAVIGATION LINKS -->
     <div class="content-links">
 
         <a href="#" onclick="homeClick(); return false;"
@@ -47,9 +44,6 @@
            onmouseover="this.style.color='#0f4466'"
            onmouseout="this.style.color='#333'"><b>About Us</b></a>
 
-        <a href="#" onclick="alert('This is the product page!'); return false;"
-           onmouseover="this.style.color='#0f4466'"
-           onmouseout="this.style.color='#333'"><b>Products</b></a>
 
         <a href="#" onclick="contactClick(); return false;"
            onmouseover="this.style.color='#0f4466'"
@@ -61,25 +55,22 @@
 
     </div>
 
-    <!-- MAIN PAGE CONTENT -->
     <main>
 
         <div class="category-container">
 
-            <!-- FEATURED GUITAR BANNER -->
             <div class="featured-banner">
 
                 <h2>Fender Vintage</h2>
 
                 <p>Simple. Clean. Ready to Rock.</p>
 
-                <button onclick="alert('Welcome to our shop!')">
+                <button onclick="openCategory('guitars')">
                     SHOP NOW
                 </button>
 
             </div>
 
-            <!-- INSTRUMENT CATEGORIES -->
             <div class="category-grid">
 
                 <a href="#" class="category-card guitars">
@@ -95,7 +86,7 @@
                 </a>
 
                 <a href="#" class="category-card wind-brass">
-                    <h3>WIND<br>&amp<br>BRASS</h3>
+                    <h3>WIND<br>&amp;<br>BRASS</h3>
                 </a>
 
                 <a href="#" class="category-card violin">
@@ -112,7 +103,6 @@
 
     </main>
 
-    <!-- ABOUT US PAGE -->
     <section class="about" id="about" style="display: none;">
 
         <h1>ABOUT US!</h1>
@@ -134,9 +124,11 @@
         <div class="row">
             <div class="box">
                 <p>
-                    We curate a comprehensive selection of premium acoustic and electric guitars, keyboards, drums, digital audio interfaces, 
-                    and live sound gear from the world’s most trusted brands. Beyond providing top-tier equipment, our experienced team offers personalized 
-                    recommendations, professional instrument setup, and ongoing repair services to keep your gear sounding its absolute best.
+                    We sell guitars, keyboards, drums, and other
+                    music equipment. We also help customers choose
+                    the right instruments and provide repair
+                    services. Our goal is to give good products
+                    and help every customer with their needs.
                 </p>
             </div>
 
@@ -152,7 +144,6 @@
 
     </section>
 
-    <!-- CONTACT US PAGE -->
     <section class="contact" id="contact" style="display: none;">
 
         <h1>CONTACT US!</h1>
@@ -186,7 +177,28 @@
 
     </section>
 
-    <!-- CART PAGE -->
+    <section class="page" id="shop" style="display: none;">
+
+        <h2 class="shop-title" id="shopTitle">Shop Guitars</h2>
+
+        <div class="shop-layout">
+
+            <div class="shop-side">
+                <h3 id="shopSideTitle">Shop Guitars</h3>
+                <div id="shopSideLinks"></div>
+            </div>
+
+            <div class="shop-grid" id="shopGrid"></div>
+
+        </div>
+
+        <div class="btn-row">
+            <button class="btn" onclick="cartClick()">View Cart</button>
+            <button class="btn" onclick="homeClick()">Back to Home</button>
+        </div>
+
+    </section>
+
     <section class="page" id="cart" style="display: none;">
 
         <h1>🛒 YOUR CART</h1>
@@ -207,14 +219,12 @@
 
     </section>
 
-    <!-- ACCOUNT PAGE -->
     <section class="page" id="account" style="display: none;">
 
         <h1>👤 MY ACCOUNT</h1>
 
         <div class="panel">
 
-            <!-- Login / sign-up view -->
             <div id="loginView">
                 <h2>Log In or Sign Up</h2>
                 <form onsubmit="loginAccount(event)">
@@ -231,7 +241,6 @@
                 </form>
             </div>
 
-            <!-- Profile view (shown after logging in) -->
             <div id="profileView" style="display: none;">
                 <h2>Welcome, <span id="welcomeName"></span>!</h2>
                 <p class="welcome-text">
@@ -250,7 +259,6 @@
 
     </section>
 
-    <!-- SETTINGS PAGE -->
     <section class="page" id="settings" style="display: none;">
 
         <h1>⚙️ SETTINGS</h1>
@@ -283,7 +291,7 @@
 
     </section>
 
-    <!-- PRODUCTS PAGE (not built yet) -->
+    <div id="toast"></div>
 
-</body>
+    </body>
 </html>
