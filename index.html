@@ -49,7 +49,7 @@
            onmouseover="this.style.color='#0f4466'"
            onmouseout="this.style.color='#333'"><b>Contact Us</b></a>
 
-        <a href="#" onclick="alert('This is the Shop Us page!'); return false;"
+        <a href="#" onclick="dealsClick(); return false;"
            onmouseover="this.style.color='#0f4466'"
            onmouseout="this.style.color='#333'"><b>Shop Us</b></a>
 
@@ -199,6 +199,135 @@
 
     </section>
 
+    <section class="page" id="deals" style="display: none;">
+
+        <div class="deals-banner">
+            <h2>🔥 HOT DEALS &amp; SALE</h2>
+            <p>Up to 30% off on selected instruments</p>
+            <div id="dealTimer" class="deal-timer"></div>
+        </div>
+
+        <div class="deal-controls">
+            <div id="dealTabs" class="deal-tabs"></div>
+            <select id="dealSort" onchange="pickDealSort(this.value)">
+                <option value="discount">Biggest discount</option>
+                <option value="low">Price: low to high</option>
+                <option value="high">Price: high to low</option>
+            </select>
+        </div>
+
+        <div class="shop-grid deal-grid" id="dealGrid"></div>
+
+        <div class="btn-row">
+            <button class="btn" onclick="cartClick()">View Cart</button>
+            <button class="btn" onclick="homeClick()">Back to Home</button>
+        </div>
+
+    </section>
+
+    <section class="page" id="product" style="display: none;">
+
+        <div class="panel detail" id="productDetail"></div>
+
+        <div class="btn-row">
+            <button class="btn" onclick="cartClick()">View Cart</button>
+            <button class="btn" onclick="homeClick()">Back to Home</button>
+        </div>
+
+    </section>
+
+    <section class="page" id="checkout" style="display: none;">
+
+        <h1>CHECKOUT</h1>
+
+        <div class="checkout-layout">
+
+            <form class="panel co-form" onsubmit="placeOrder(event)">
+
+                <h2>1. Contact &amp; Address</h2>
+                <label class="field-label" for="coName">Full name</label>
+                <input type="text" id="coName" placeholder="Juan Dela Cruz" required>
+                <label class="field-label" for="coPhone">Phone number</label>
+                <input type="text" id="coPhone" placeholder="09XX XXX XXXX" pattern="[0-9 +\-]{7,15}" required>
+                <label class="field-label" for="coAddress">Street address</label>
+                <input type="text" id="coAddress" placeholder="House no., street, barangay" required>
+                <label class="field-label" for="coCity">City</label>
+                <input type="text" id="coCity" placeholder="Quezon City" required>
+                <label class="field-label" for="coZip">ZIP code</label>
+                <input type="text" id="coZip" placeholder="1100" pattern="[0-9]{4}" required>
+
+                <h2>2. Delivery Option</h2>
+                <label class="opt"><input type="radio" name="ship" value="standard" checked onchange="setShip(this.value)"> Standard Delivery (3-5 days) - ₱150 <small>(free for orders ₱5,000 and up)</small></label>
+                <label class="opt"><input type="radio" name="ship" value="express" onchange="setShip(this.value)"> Express Delivery (1-2 days) - ₱300</label>
+
+                <h2>3. Payment Method</h2>
+                <label class="opt"><input type="radio" name="pay" value="cod" checked onchange="setPay(this.value)"> Cash on Delivery</label>
+                <div class="pay-extra" id="payExtra-cod"><p>Pay in cash when your order arrives.</p></div>
+
+                <label class="opt"><input type="radio" name="pay" value="gcash" onchange="setPay(this.value)"> GCash</label>
+                <div class="pay-extra" id="payExtra-gcash" style="display: none;">
+                    <p>Send the total to GCash number 0917 123 4567 (Music World), then enter the reference number.</p>
+                    <input type="text" id="gcashRef" placeholder="GCash reference number">
+                </div>
+
+                <label class="opt"><input type="radio" name="pay" value="card" onchange="setPay(this.value)"> Credit / Debit Card</label>
+                <div class="pay-extra" id="payExtra-card" style="display: none;">
+                    <input type="text" id="cardNumber" placeholder="Card number (16 digits)" maxlength="19" autocomplete="off">
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="off">
+                    <input type="text" id="cardCvv" placeholder="CVV" maxlength="4" autocomplete="off">
+                </div>
+
+                <label class="opt"><input type="radio" name="pay" value="bank" onchange="setPay(this.value)"> Bank Transfer</label>
+                <div class="pay-extra" id="payExtra-bank" style="display: none;">
+                    <p>Transfer to Music World, account no. 1234 5678 9012, then enter the reference number.</p>
+                    <input type="text" id="bankRef" placeholder="Bank reference number">
+                </div>
+
+                <p class="demo-note">This is a demo checkout. No real payment is made.</p>
+
+                <div class="btn-row">
+                    <button class="btn" type="submit">Place Order</button>
+                    <button class="btn" type="button" onclick="cartClick()">Back to Cart</button>
+                </div>
+
+            </form>
+
+            <div class="panel co-summary">
+                <h2>Order Summary</h2>
+                <div id="coItems"></div>
+
+                <div class="voucher-row">
+                    <input type="text" id="voucherInput" placeholder="Voucher code (try MUSIC10)">
+                    <button class="btn btn-small" type="button" onclick="applyVoucher()">Apply</button>
+                </div>
+                <div id="voucherMsg" class="voucher-msg"></div>
+
+                <div class="co-line"><span>Subtotal</span><strong id="coSubtotal">₱0</strong></div>
+                <div class="co-line"><span>Shipping</span><strong id="coShipping">₱0</strong></div>
+                <div class="co-line"><span>Discount</span><strong id="coDiscount">₱0</strong></div>
+                <div class="co-line order-total"><span>Total</span><strong id="coTotal">₱0</strong></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="page" id="orders" style="display: none;">
+
+        <h1>MY ORDERS</h1>
+
+        <div class="panel orders-panel">
+            <div id="orderMsg" class="order-success" style="display: none;"></div>
+            <div id="ordersList"></div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn" onclick="homeClick()">Continue Shopping</button>
+            <button class="btn" onclick="cartClick()">View Cart</button>
+        </div>
+
+    </section>
+
     <section class="page" id="cart" style="display: none;">
 
         <h1>🛒 YOUR CART</h1>
@@ -214,6 +343,7 @@
             <div class="btn-row">
                 <button class="btn" onclick="checkout()">Checkout</button>
                 <button class="btn" onclick="homeClick()">Continue Shopping</button>
+                <button class="btn" onclick="showOrders()">My Orders</button>
             </div>
         </div>
 
@@ -245,10 +375,11 @@
                 <h2>Welcome, <span id="welcomeName"></span>!</h2>
                 <p class="welcome-text">
                     You are logged in as <strong id="accEmailShown"></strong>.<br>
-                    Orders: none yet
+                    Check your purchases under My Orders.
                 </p>
                 <div class="btn-row">
                     <button class="btn" onclick="cartClick()">View Cart</button>
+                    <button class="btn" onclick="showOrders()">My Orders</button>
                     <button class="btn" onclick="logoutAccount()">Log Out</button>
                 </div>
             </div>
