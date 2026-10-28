@@ -5,7 +5,7 @@
             });
             window.scrollTo(0, 0);
         }
-
+ 
         function homeClick() { showPage("home"); }
         function aboutClick() { showPage("about"); }
         function contactClick() { showPage("contact"); }
