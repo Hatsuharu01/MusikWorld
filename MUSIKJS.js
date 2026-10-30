@@ -702,6 +702,7 @@ function showPage(page) {
                     });
                 }
             });
+        }
             renderCart();
             setInterval(tickDeals, 1000);   // update the timer every second
         });
