@@ -1,4 +1,4 @@
-function showPage(page) {
+ function showPage(page) {
             document.querySelector("main").style.display = (page === "home") ? "block" : "none";
             ["about", "contact", "cart", "account", "settings", "shop", "product", "checkout", "orders", "deals"].forEach(function (id) {
                 document.getElementById(id).style.display = (page === id) ? "block" : "none";
@@ -702,7 +702,6 @@ function showPage(page) {
                     });
                 }
             });
-        }
             renderCart();
             setInterval(tickDeals, 1000);   // update the timer every second
         });
