@@ -618,16 +618,6 @@
             return String(number).padStart(2, "0");
         }
 
-        function tickDeals() {
-            var now = new Date();
-            var midnight = new Date();
-            midnight.setHours(24, 0, 0, 0);          // tonight at 12:00 AM
-
-           
-            document.getElementById("dealTimer").textContent =
-                "Today's deals end in " + pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
-        }
-
         function pickDealCat(slug) {
             dealCat = slug;
             renderDeals();
@@ -703,7 +693,6 @@
                 }
             });
             renderCart();
-         
             setInterval(tickDeals, 1000);   // update the timer every second
         });
         
